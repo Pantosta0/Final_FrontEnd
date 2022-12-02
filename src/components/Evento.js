@@ -33,12 +33,26 @@ const ExpandMore = styled((props) => {
   }),
 }));
 
-export default function Evento() {
+export default function Evento(props) {
+  const {data}= props;
   const [expanded, setExpanded] = React.useState(false);
+  const [available, setAvailable] = React.useState(true);
+  const [disponibles, setDisponibles] = React.useState(10000);
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
+
+  const comprarBoleta= ()=>{
+    if (available==false) {
+      //decir que no hay boletas
+    }else{
+      setDisponibles(disponibles-1)
+      if (disponibles===0) {
+        setAvailable(false)
+      }
+    }    
+  }
 
   return (
     <Card sx={{ maxWidth: 345 }}>
@@ -49,21 +63,21 @@ export default function Evento() {
             variant = 'h5'
             color = 'textSecondary'
           >
-             {accounting.formatMoney(199900, { symbol: "COP", format:"%v %s"})}
+             {accounting.formatMoney(data.precio, { symbol: "COP", format:"%v %s"})}
           </Typography>
         }
-        title="Kings of Convenience"
-        subheader="Jueves, 01 de Diciembre"
+        title={data.nombre}
+        subheader={data.fecha}
       />
       <CardMedia
         component="img"
         height="250"
-        image="https://tuboleta.com/imagenes/62cc801d74bc7.png"
+        image={data.imglink}
         alt="Event Poster"
       />
       <CardContent>
         <Typography variant="body2" color="text.secondary">
-        Después de doce años de silencio el dúo noruego regresó con el celebrado disco Peace or Love y Bogotá será testigo de este reencuentro el 1ro de diciembre en el Teatro Jorge Eliécer Gaitán para una velada acústica y desprendida de uno de los corazones originales del indie folk como Kings of Convenience.
+          {data.desc}
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
@@ -85,25 +99,25 @@ export default function Evento() {
               <ListItemIcon>
                 <LocationOnIcon />
               </ListItemIcon>
-              <ListItemText primary="Lugar: Teatro Jorge Eliécer Gaitán" />
+              <ListItemText primary={"Lugar: "+data.lugar}/>
         </ListItem>
         <ListItem>
               <ListItemIcon>
                 <LocationOnIcon />
               </ListItemIcon>
-              <ListItemText primary="Ciudad: Bogotá" />
+              <ListItemText primary={"Ciudad: "+data.ciudad} />
         </ListItem>
         <ListItem>
               <ListItemIcon>
                 <CalendarMonthIcon />
               </ListItemIcon>
-              <ListItemText primary="Fecha: 2022-12-01" />
+              <ListItemText primary={"Fecha: "+data.fecha} />
         </ListItem>
         <ListItem>
               <ListItemIcon>
                 <ScheduleIcon />
               </ListItemIcon>
-              <ListItemText primary="Hora: 9:30pm" />
+              <ListItemText primary={"Hora: "+ data.hora} />
         </ListItem>
         </CardContent>
       </Collapse>
