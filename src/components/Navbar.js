@@ -14,14 +14,14 @@ export default function Navbar() {
     <Box sx={{ flexGrow: 1, marginBottom: '7rem'}}>
       <AppBar position="fixed">
         <Toolbar>
-            <IconButton color= 'primary'>
+            <IconButton color= 'primary' href= '/'>
             <img src="https://tuboleta.com/img/ic_logotuboleta.svg" alt='Logo Tuboleta'></img>
             </IconButton>
 
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             
           </Typography>
-          <IconButton>
+          <IconButton href='/login'>
             <img src='https://tuboleta.com/img/ic_m_user.svg'alt='Icono usuario'></img>
             <Typography color="white" fontWeight="bolder">
               Ingresa  

@@ -44,7 +44,7 @@ export default function Evento(props) {
   };
 
   const comprarBoleta= ()=>{
-    if (available==false) {
+    if (available===false) {
       //decir que no hay boletas
     }else{
       setDisponibles(disponibles-1)
