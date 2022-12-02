@@ -17,6 +17,7 @@ import LocationOnIcon from '@mui/icons-material/LocationOn';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ScheduleIcon from '@mui/icons-material/Schedule';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
+import Grid from '@mui/material/Unstable_Grid2';
 
 
 
@@ -36,25 +37,13 @@ const ExpandMore = styled((props) => {
 export default function Evento(props) {
   const {data}= props;
   const [expanded, setExpanded] = React.useState(false);
-  const [available, setAvailable] = React.useState(true);
-  const [disponibles, setDisponibles] = React.useState(10000);
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
 
-  const comprarBoleta= ()=>{
-    if (available===false) {
-      //decir que no hay boletas
-    }else{
-      setDisponibles(disponibles-1)
-      if (disponibles===0) {
-        setAvailable(false)
-      }
-    }    
-  }
-
   return (
+    <Grid xs={12} sm={6} md={4} lg={3}>
     <Card sx={{ maxWidth: 345 }}>
       <CardHeader
         action={
@@ -122,5 +111,6 @@ export default function Evento(props) {
         </CardContent>
       </Collapse>
     </Card>
+  </Grid>
   );
 }
