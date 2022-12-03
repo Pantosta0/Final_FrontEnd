@@ -54,6 +54,17 @@
       "lugar": "Teatro Jorge Eliécer Gaitán",
       "ciudad": "Bogotá",
       "hora": "9:30pm"
+    },
+    {
+      "nombre": "Catedra Europa",
+      "fecha": "2023-01-02",
+      "hora": "20:20",
+      "imglink": "https://i.ytimg.com/vi/UGvNke3dXtU/maxresdefault.jpg",
+      "precio": "1234123",
+      "lugar": "Uninorte",
+      "ciudad": "Barranquilla",
+      "desc": "Catedra Europa Uninorte",
+      "id": "5eef"
     }
   ],
   "users": [

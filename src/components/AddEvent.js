@@ -16,9 +16,10 @@ const handleSubmit =async (event) => {
     data.forEach(function (value, key) {
         object[key] = value;
     });
+    console.log(object);
     let id = IdGen()
     object.id=id
-    axios.post("http://localhost:3000/events")
+    axios.post("http://localhost:3000/events", object)
 }
 
 
